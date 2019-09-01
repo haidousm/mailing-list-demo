@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
 
-    const endpoint = "https://us4.api.mailchimp.com/3.0/lists/9425f3855a/"
+    const endpoint = "https://usX.api.mailchimp.com/3.0/lists/{LIST_ID}/"
 
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
@@ -32,7 +32,7 @@ app.post("/", (req, res) => {
         auth: {
 
             username: "haidousm",
-            password: "4cfa9bc5349b078dc2e5ea341a809bb6-us4"
+            password: "API_KEY"
 
         },
 
@@ -80,7 +80,7 @@ app.post("/failure", (req, res) => {
     res.redirect("/");
 
 })
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 
     console.log("App is running on port 3000.");
 
