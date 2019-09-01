@@ -36,18 +36,18 @@ app.post("/", (req, res) => {
 
         },
 
-        body: JSON.stringify({
-            members: [{
+        // body: JSON.stringify({
+        //     members: [{
 
-                "email_address": email,
-                "status": "subscribed",
-                "merge_fields": {
-                    "FNAME": firstName,
-                    "LNAME": lastName
-                }
+        //         "email_address": email,
+        //         "status": "subscribed",
+        //         "merge_fields": {
+        //             "FNAME": firstName,
+        //             "LNAME": lastName
+        //         }
 
-            }]
-        })
+        //     }]
+        // })
 
     }
 
@@ -55,11 +55,19 @@ app.post("/", (req, res) => {
 
         if (error) {
 
-            console.log("error");
+            response.sendFile(__dirname + "/failure.html")
 
         } else {
 
-            console.log(response.statusCode);
+            if (response.statusCode == 200) {
+
+                res.sendFile(__dirname + "/success.html")
+
+            } else {
+
+                res.sendFile(__dirname + "/failure.html")
+
+            }
 
         }
 
@@ -67,10 +75,13 @@ app.post("/", (req, res) => {
 
 })
 
+app.post("/failure", (req, res) => {
+
+    res.redirect("/");
+
+})
 app.listen(3000, () => {
 
     console.log("App is running on port 3000.");
 
 })
-
-// 4cfa9bc5349b078dc2e5ea341a809bb6-us4
