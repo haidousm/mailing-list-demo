@@ -36,18 +36,18 @@ app.post("/", (req, res) => {
 
         },
 
-        // body: JSON.stringify({
-        //     members: [{
+        body: JSON.stringify({
+            members: [{
 
-        //         "email_address": email,
-        //         "status": "subscribed",
-        //         "merge_fields": {
-        //             "FNAME": firstName,
-        //             "LNAME": lastName
-        //         }
+                "email_address": email,
+                "status": "subscribed",
+                "merge_fields": {
+                    "FNAME": firstName,
+                    "LNAME": lastName
+                }
 
-        //     }]
-        // })
+            }]
+        })
 
     }
 
