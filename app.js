@@ -53,23 +53,11 @@ app.post("/", (req, res) => {
 
     request(options, (error, response, body) => {
 
-        if (error) {
+        if (response.statusCode == 200) {
 
-            response.sendFile(__dirname + "/failure.html")
+                res.sendFile(process.env.PWD + "/success.html")
 
-        } else {
-
-            if (response.statusCode == 200) {
-
-                res.sendFile(__dirname + "/success.html")
-
-            } else {
-
-                res.sendFile(__dirname + "/failure.html")
-
-            }
-
-        }
+        } 
 
     })
 
