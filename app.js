@@ -13,7 +13,7 @@ app.use(express.static('public'))
 
 app.get("/", (req, res) => {
 
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(process.env.PWD + "/index.html");
 
 })
 
@@ -53,11 +53,9 @@ app.post("/", (req, res) => {
 
     request(options, (error, response, body) => {
 
-        if (response.statusCode == 200) {
 
                 res.sendFile(process.env.PWD + "/success.html")
 
-        } 
 
     })
 
